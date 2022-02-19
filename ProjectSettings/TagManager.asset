@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - mainBullet
+  - plate1
+  - plate0
+  - plate3
+  - plate2
   layers:
   - Default
   - TransparentFX

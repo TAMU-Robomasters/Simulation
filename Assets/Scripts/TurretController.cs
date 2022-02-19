@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class TurretController : MonoBehaviour
 {
-    public float BlastPower = 5;
+    public float Power = 5;
+	public float fireRate = 0.15f;
 
-    public GameObject Cannonball;
+    public GameObject Bullet;
     public Transform ShotPoint;
 	
 	bool autoFire = false;
+	bool allowFire = false;
+	
+	IEnumerator FireRate()
+    {
+		allowFire = false;
+		GameObject CreatedBullet = Instantiate(Bullet, ShotPoint.position, ShotPoint.rotation);
+        CreatedBullet.GetComponent<Rigidbody>().velocity = ShotPoint.transform.up * Power;
+		yield return new WaitForSeconds(fireRate);
+		allowFire = true;
+    }
+	
+	void Start() {
+		allowFire = true;
+	}
 
     private void Update()
     {
@@ -20,9 +35,8 @@ public class TurretController : MonoBehaviour
 		if (Input.GetMouseButtonUp(0)) {
 			autoFire = false;
 		}
-		if (autoFire) {
-			GameObject CreatedCannonball = Instantiate(Cannonball, ShotPoint.position, ShotPoint.rotation);
-            CreatedCannonball.GetComponent<Rigidbody>().velocity = ShotPoint.transform.up * BlastPower;
+		if (autoFire && allowFire) {
+			StartCoroutine(FireRate());
 		}
 	}
 }

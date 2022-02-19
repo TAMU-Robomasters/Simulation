@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 	
 	public float speed = 12f;
 	
+	Vector3 position;
+	
 
     // Update is called once per frame
     void Update()
@@ -18,5 +20,7 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 move = transform.right * x + transform.forward * z;
 		
 		controller.Move(move * speed * Time.deltaTime);
+		
+		transform.position.Set(transform.position.x, 0.5f, transform.position.z);
     }
 }

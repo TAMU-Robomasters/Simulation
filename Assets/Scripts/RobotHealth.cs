@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RobotHealth : MonoBehaviour
 {
-	public float healthEnemy;
+	EnemyControl enemyControl = null;
+	
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyControl = GameObject.Find("StandardEnemy").GetComponent<EnemyControl>();
     }
 
     // Update is called once per frame
@@ -19,8 +20,16 @@ public class RobotHealth : MonoBehaviour
 	
 	void OnCollisionEnter(Collision obj) {
 		if (obj.gameObject.tag == "mainBullet") {
-			healthEnemy -= 10f;
-			Debug.Log(healthEnemy);
+			if (gameObject.tag == "plate0") {
+				enemyControl.health -= 20f;
+			} else if (gameObject.tag == "plate2") {
+				enemyControl.health -= 60f;
+			} else {
+				enemyControl.health -= 40f;
+			}
+			
+	
+			Debug.Log(enemyControl.health);
 		}
 	}
 }
