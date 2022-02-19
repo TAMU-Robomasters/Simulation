@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurretController : MonoBehaviour
 {
-    public float Power = 5;
+    public float Power = 26;
 	public float fireRate = 0.15f;
 
     public GameObject Bullet;
