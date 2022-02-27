@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GetDepth : MonoBehaviour
 {
+	public CharacterController controller;
+	private float depth = 0f;
+	private float velMag = 0f;
+	private Vector3 vel;
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +18,7 @@ public class GetDepth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(depth + ", " + velMag + ", " + vel);
     }
 	
 	void FixedUpdate() {
@@ -23,7 +28,15 @@ public class GetDepth : MonoBehaviour
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit))
 		{
-			Debug.Log(hit.distance);
+			// Debug.Log(hit.distance);
+			depth = hit.distance;
+		} else {
+			depth = -1f;
 		}
+		
+		Vector3 horizontalVelocity = controller.velocity;
+        horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z);
+		vel = horizontalVelocity;
+        velMag = horizontalVelocity.magnitude;
 	}
 }

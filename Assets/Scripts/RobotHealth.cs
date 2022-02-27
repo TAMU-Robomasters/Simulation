@@ -29,7 +29,7 @@ public class RobotHealth : MonoBehaviour
 			}
 			
 	
-			Debug.Log(enemyControl.health);
+			// Debug.Log(enemyControl.health);
 		}
 	}
 }

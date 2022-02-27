@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	public CharacterController controller;
 	
-	public float speed = 12f;
+	public float speed = 12;
 	
 	Vector3 position;
 	
@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 		float z = Input.GetAxis("Vertical");
 		
 		Vector3 move = transform.right * x + transform.forward * z;
+		move = move.normalized;
 		
 		controller.Move(move * speed * Time.deltaTime);
 		
