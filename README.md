@@ -16,6 +16,7 @@
     - click the "Add", find the Simulation folder you just downloaded, inside that folder go into the `unity` folder, and inside that open the `Simulation` folder
     - Then click the name of the project ("Simulation"), and there should be a black pop-up (at the bottom)
         - If Unity Hub warns you about the version number, you can go [here](https://unity3d.com/get-unity/download/archive) to install an older version of Unity.
+        - Currently, The Simulation&trade; uses version 2020.3.26f1
     
     - Click install, then try opening the project again
 
