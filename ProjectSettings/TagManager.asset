@@ -9,6 +9,7 @@ TagManager:
   - plate0
   - plate3
   - plate2
+  - TopDownCamera
   layers:
   - Default
   - TransparentFX
