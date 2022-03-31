@@ -84,7 +84,7 @@ public class GetDepth : MonoBehaviour
 	void Start()
     {
 		StartTime = DateTime.Now;
-		path = Directory.GetCurrentDirectory() + @"\SimRun-" + StartTime.ToString("yyyy-MM-dd-HH-mm-ss") + file_type;
+		path = Directory.GetCurrentDirectory() + @"\Recordings\SimRun-" + StartTime.ToString("yyyy-MM-dd-HH-mm-ss") + file_type;
 		Debug.Log(path);
 		using (FileStream fs = File.Create(path))
         {
