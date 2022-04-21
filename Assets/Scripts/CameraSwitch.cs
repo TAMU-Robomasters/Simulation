@@ -19,18 +19,12 @@ public class CameraSwitch : MonoBehaviour
     void Update()
     {
         //Checks if user has inputed they want to switch cameras to top down
-        if(Input.GetButtonDown("Jump")){
-            if(CameraActive ==  false){
-                CameraActive = true;
-                print("true");
-            }
-            else{
-                CameraActive = false;
-            }
+        if(Input.GetButtonDown("Jump")) {
+            CameraActive = !CameraActive;
         }
         
         //switches between the top down and pov camera
-        if(CameraActive == true){
+        if(CameraActive){
             POVCamera.SetActive(false);            
             TopDownCamera.SetActive(true);
         }
