@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 # Stuff for The Simulation™
 SimRun-*.csv
+Assets/Standard.dae
+Assets/Standard.dae.meta
