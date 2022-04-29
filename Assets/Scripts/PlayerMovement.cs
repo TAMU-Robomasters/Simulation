@@ -5,13 +5,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 	public CharacterController controller;
-	
+	public BoxCollider boxCollider;
+
 	public float speed = 12;
 	
 	Vector3 position;
 	
+	void Start()
+    {
+		this.controller.radius = 0;
+		this.controller.center = new Vector3(0, 0, 0);
+    }
 
-    // Update is called once per frame
+	/**
+	 * Called once per frame
+	 */
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
@@ -20,8 +28,7 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 move = transform.right * x + transform.forward * z;
 		move = move.normalized;
 		
-		controller.Move(move * speed * Time.deltaTime);
-		
-		transform.position.Set(transform.position.x, 0.5f, transform.position.z);
+		this.controller.Move(move * speed * Time.deltaTime);
+		this.transform.position.Set(transform.position.x, 0.1f, transform.position.z);
     }
 }
